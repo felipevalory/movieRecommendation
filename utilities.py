@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-TMDB_API_KEY = os.environ.get('4ed12419ffb432adfa4347643d418eda')
+TMDB_API_KEY = os.environ.get('TMDB_API_KEY')
 
 
 # Função para carregar os dados uma vez
