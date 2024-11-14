@@ -7,6 +7,11 @@ load_dotenv()
 
 TMDB_API_KEY = os.environ.get('TMDB_API_KEY')
 
+# Verifica se a chave foi carregada corretamente
+if not TMDB_API_KEY:
+    print("Erro: Chave da API não encontrada no arquivo .env")
+    exit(1)
+
 
 # Função para carregar os dados uma vez
 def load_data():
