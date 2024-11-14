@@ -6,10 +6,7 @@ from dotenv import load_dotenv
 load_dotenv(dotenv_path='C:/Users/Felipe/Documents/Felipe/Cursos/CientistaDados/recommendation_project/.env')
 
 TMDB_API_KEY = os.getenv('TMDB_API_KEY')
-
-# Verifica se a chave foi carregada corretamente
-if not TMDB_API_KEY:
-    print("Erro: Chave da API não encontrada no arquivo .env")
+assert TMDB_API_KEY is not None, "API Key não foi carregada corretamente"
 
 
 # Função para carregar os dados uma vez
@@ -32,14 +29,19 @@ def load_data():
 def get_movie_poster(title):
     """Busca a capa do filme pelo título usando a API TMDB."""
     url = f"https://api.themoviedb.org/3/search/movie?api_key={TMDB_API_KEY}&query={title}"
-    response = requests.get(url)
-    data = response.json()
 
-    # Verifique se há resultados e se a capa está disponível
-    if data['results']:
-        poster_path = data['results'][0].get('poster_path')
-        if poster_path:
-            return f"https://image.tmdb.org/t/p/w500{poster_path}"
+    try:
+        response = requests.get(url)
+        data = response.json()
+
+        # Verifique se há resultados e se a capa está disponível
+        if data['results']:
+            poster_path = data['results'][0].get('poster_path')
+            if poster_path:
+                return f"https://image.tmdb.org/t/p/w500{poster_path}"
+
+    except requests.exceptions.RequestException as e:
+        print(f"Erro ao buscar a capa do filme: {e}")
 
     # Retorna uma imagem padrão se a capa não for encontrada
     return "https://via.placeholder.com/150x225?text=Capa+Indisponível"
