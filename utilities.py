@@ -3,7 +3,7 @@ import pickle
 import requests
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(dotenv_path='C:/Users/Felipe/Documents/Felipe/Cursos/CientistaDados/recommendation_project/.env')
 
 TMDB_API_KEY = os.getenv('TMDB_API_KEY')
 
