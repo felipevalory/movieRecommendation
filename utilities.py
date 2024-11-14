@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-TMDB_API_KEY = os.environ.get('TMDB_API_KEY')
+TMDB_API_KEY = os.getenv('TMDB_API_KEY')
 
 # Verifica se a chave foi carregada corretamente
 if not TMDB_API_KEY:
