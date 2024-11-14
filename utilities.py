@@ -8,7 +8,6 @@ load_dotenv(dotenv_path='.env')
 
 TMDB_API_KEY = os.getenv('TMDB_API_KEY')
 st.write("API Key:", TMDB_API_KEY)
-assert TMDB_API_KEY is not None, "API Key não foi carregada corretamente"
 
 
 # Função para carregar os dados uma vez
