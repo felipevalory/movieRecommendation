@@ -1,10 +1,10 @@
 import streamlit as st
 from utilities import load_data, get_recommendations
 
+st.set_page_config(page_title='Filmes Recomendados', layout='centered')
+
 # Carrega o modelo e dados
 model, movie_pivot, movies = load_data()
-
-st.set_page_config(page_title='Filmes Recomendados', layout='centered')
 
 st.write('# Qual seu próximo filme?')
 st.write('### Insira seu filme favorito abaixo para receber recomendações '
