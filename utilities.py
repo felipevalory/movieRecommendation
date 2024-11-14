@@ -1,5 +1,8 @@
 import os
 import pickle
+import requests
+
+TMDB_API_KEY = os.getenv("4ed12419ffb432adfa4347643d418eda")
 
 
 # Função para carregar os dados uma vez
@@ -17,6 +20,22 @@ def load_data():
     except FileNotFoundError as e:
         print(f"Erro ao carregar o modelo ou dados: {e}")
         return None, None, None
+
+
+def get_movie_poster(title):
+    """Busca a capa do filme pelo título usando a API TMDB."""
+    url = f"https://api.themoviedb.org/3/search/movie?api_key={TMDB_API_KEY}&query={title}"
+    response = requests.get(url)
+    data = response.json()
+
+    # Verifique se há resultados e se a capa está disponível
+    if data['results']:
+        poster_path = data['results'][0].get('poster_path')
+        if poster_path:
+            return f"https://image.tmdb.org/t/p/w500{poster_path}"
+
+    # Retorna uma imagem padrão se a capa não for encontrada
+    return "https://via.placeholder.com/150x225?text=Capa+Indisponível"
 
 
 # Função para obter recomendações de filmes
@@ -38,7 +57,13 @@ def get_recommendations(movie_name, model, movie_pivot):
     distances, indices = (model.kneighbors(movie_pivot.loc[original_title]
                                            .values.reshape(1, -1),
                                            n_neighbors=6))
-    recommended_movies = [movie_pivot.index[i] for i in indices.flatten()[1:]]
+    recommended_movies = [
+        {
+            "title": movie_pivot.index[i],
+            "poster_url": get_movie_poster(movie_pivot.index[i])
+        }
+        for i in indices.flatten()[1:]
+    ]
     return recommended_movies
 
 

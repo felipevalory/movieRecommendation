@@ -6,19 +6,6 @@ model, movie_pivot, movies = load_data()
 
 st.set_page_config(page_title='Filmes Recomendados', layout='centered')
 
-# Color settings
-st.markdown(
-    """
-    <style>
-    .main {
-        background-color: #1a1a1a;
-        color: white;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 st.write('# Qual seu próximo filme?')
 st.write('### Insira seu filme favorito abaixo para receber recomendações '
          'personalizadas de filmes semelhantes!')
@@ -36,8 +23,12 @@ if st.button("Buscar Recomendações"):
                                                   movie_pivot)
             if recommendations:
                 st.subheader("Recomendações de Filmes:")
-                for rec in recommendations:
-                    st.write(f"- {rec}")
+                cols = st.columns(len(recommendations))
+
+                for idx, rec in enumerate(recommendations):
+                    with cols[idx]:  # Coloca cada recomendação em uma coluna
+                        st.image(rec['poster_url'], use_column_width=True)
+                        st.caption(rec['title'])
             else:
                 st.write("Filme não encontrado ou sem recomendações.")
         except Exception as e:
