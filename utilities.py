@@ -1,11 +1,13 @@
 import os
 import pickle
 import requests
+import streamlit as st
 from dotenv import load_dotenv
 
-load_dotenv(dotenv_path='C:/Users/Felipe/Documents/Felipe/Cursos/CientistaDados/recommendation_project/.env')
+load_dotenv(dotenv_path='.env')
 
 TMDB_API_KEY = os.getenv('TMDB_API_KEY')
+st.write("API Key:", TMDB_API_KEY)
 assert TMDB_API_KEY is not None, "API Key não foi carregada corretamente"
 
 
