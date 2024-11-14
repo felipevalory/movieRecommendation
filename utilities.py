@@ -2,7 +2,7 @@ import os
 import pickle
 import requests
 
-TMDB_API_KEY = os.getenv("4ed12419ffb432adfa4347643d418eda")
+TMDB_API_KEY = "4ed12419ffb432adfa4347643d418eda"
 
 
 # Função para carregar os dados uma vez
