@@ -1,13 +1,8 @@
 import os
 import pickle
 import requests
-import streamlit as st
-from dotenv import load_dotenv
-
-load_dotenv(dotenv_path='.env')
 
 TMDB_API_KEY = os.getenv('TMDB_API_KEY')
-st.write("API Key:", TMDB_API_KEY)
 
 
 # Função para carregar os dados uma vez
