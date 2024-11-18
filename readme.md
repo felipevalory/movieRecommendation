@@ -1,13 +1,13 @@
-# 🎬 Movie Recommender App
+# 🎬 Movie Recommendation Project
 
-Welcome to **Movie Recommender App**—an intelligent movie suggestion platform powered by the ratings of millions worldwide! Simply enter your favorite movie, and our recommendation engine will find films that resonate with your taste, taking cues from global movie ratings
+A machine learning model that recommends movies based on public review data from thousands of people! Simply enter your favorite movie, and it will find movies that resonate with your taste, taking cues from global movie ratings.
 
 ## 🔥 Features
 
 - **User-Friendly Interface**: Simple, single-page layout to keep your experience focused on movie discovery.
-- **Real-Time Recommendations**: Our app utilizes a K-Nearest Neighbors model to instantly generate recommendations based on your input.
+- **Real-Time Recommendations**: It utilizes a K-Nearest Neighbors model to instantly generate recommendations based on your input.
 - **Dynamic Movie Posters**: Each recommended film includes a movie poster fetched directly from TMDB, making it easy to explore options visually.
-- **Smart Suggestions**: Our model leverages user ratings data and movie features to find the closest matches to your taste.
+- **Smart Suggestions**: This model leverages user ratings data and movie features to find the closest matches to your taste.
 
 ## 🛠️ Built With
 
@@ -18,13 +18,13 @@ Welcome to **Movie Recommender App**—an intelligent movie suggestion platform 
 
 ## 🚀 How It Works
 
-1. **Data Preparation**: Using a large dataset of movie ratings and titles, we filter and clean the data, focusing on high-quality, English-language movies.
-2. **Machine Learning Model**: We trained a K-Nearest Neighbors model on a sparse matrix of movie ratings to identify movies similar to the user’s choice.
-3. **Real-Time Poster Fetching**: Using the TMDB API, we retrieve posters for recommended movies dynamically, so you always see the latest information.
+1. **Data Preparation**: Using a large public dataset of movie ratings and titles, I filtered and cleaned the data, focusing on English-language movies.
+2. **Machine Learning Model**: I trained a K-Nearest Neighbors model on a sparse matrix of movie ratings to identify movies similar to the user’s choice.
+3. **Real-Time Poster Fetching**: Using the TMDB API, I retrieve posters for recommended movies dynamically, so you always see the latest information.
 
 ## 📸 App Demo
 
-Here's a sneak peek of the Movie Recommender App in action! Enter a title, hit "Search", and get personalized suggestions, complete with posters.
+Here's a sneak peek of the Movie Recommendation App in action! Enter a title, hit "Search", and get personalized suggestions, complete with posters.
 
 ![App](img/app.jpg)
 
